@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><style id="custom-theme-overrides-chirag">
+<!DOCTYPE html><html lang="en"><head><style id="custom-theme-overrides-chirag">
 :root {
     --bg: #ffffff;
     --surface: #f8fafc;
@@ -292,8 +292,228 @@ aside.bg-primary {
     box-shadow: var(--shadow);
 }
 
+/* Section Styles */
+
+/* 1. Hero Section Styling */
+.masthead, header.masthead, .jumbotron, header.bg-dark, .bg-dark.py-5 {
+    background: linear-gradient(180deg, rgba(79,70,229,0.08), rgba(79,70,229,0)) 0 0/100% 100%, var(--surface) !important;
+    padding-top: calc(var(--space-5) + 1.5rem);
+    padding-bottom: calc(var(--space-5) + 1.5rem);
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+header .display-5, header .display-1, header .display-2, .masthead .display-5, .jumbotron .display-5 {
+    font-size: 2.75rem;
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+header .lead, .masthead .lead, .jumbotron .lead {
+    max-width: 40rem;
+    font-size: 1.32rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--muted);
+}
+@media (max-width: 992px) {
+    .masthead, header.masthead, .jumbotron, header.bg-dark, .bg-dark.py-5 {
+        padding-top: var(--space-4);
+        padding-bottom: var(--space-4);
+        min-height: 275px;
+    }
+    header .display-5, .masthead .display-5 {
+        font-size: 2rem;
+    }
+    header .lead, .masthead .lead {
+        font-size: 1.07rem;
+    }
+}
+@media (max-width: 768px) {
+    header .display-5, .masthead .display-5 {
+        font-size: 1.5rem! important;
+    }
+    .masthead, header.masthead, .jumbotron, header.bg-dark, .bg-dark.py-5 {
+        text-align: center;
+        flex-direction: column;
+        padding-top: var(--space-3);
+        padding-bottom: var(--space-3);
+    }
+    header .lead, .masthead .lead {
+        font-size: 1rem;
+    }
+}
+header .display-5, header .lead {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 2. Portfolio/Work Tiles */
+.portfolio, .portfolio-overview, .portfolio-grid, .portfolio-item, .card, .card.h-100, .card.shadow {
+    transition: box-shadow .18s, transform .15s !important;
+}
+.portfolio-item, .portfolio-item:hover, .card, .card:hover, .portfolio .card {
+    will-change: transform, box-shadow;
+}
+.portfolio, .portfolio-grid, .row[class*="gx-"] {
+    gap: var(--space-3);
+}
+.portfolio-item:hover, .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow) !important;
+    z-index: 3;
+}
+.portfolio-item img, .portfolio-item .card-img-top, .card-img-top {
+    border-radius: var(--radius) !important;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+    background: #e9ecef;
+}
+
+@supports not (aspect-ratio: 16/10) {
+    .portfolio-item img, .portfolio-item .card-img-top, .card-img-top {
+        height: 0;
+        padding-bottom: 62.5%; /* 16/10 */
+        position: relative;
+        object-fit: cover;
+    }
+}
+
+/* 3. Blog/Posts previews */
+.post-preview, .blog-post-list, .blog-preview-list, .card.h-100 {
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+}
+.post-preview:last-child, .blog-post-list:last-child, .blog-preview-list:last-child {
+    border-bottom: none;
+}
+.post-preview .post-meta, .blog-post-list .post-meta, .card-footer .small, .card-footer .text-muted {
+    color: var(--muted) !important;
+    opacity: 1;
+    font-size: .98rem;
+    margin-top: .25rem;
+}
+.card-title a, .post-preview a, .blog-post-list a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color .14s;
+}
+.card-title a:hover, .post-preview a:hover, .blog-post-list a:hover, .card-title a:focus {
+    color: var(--primary-700);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.card-body, .post-preview, .blog-preview-list {
+    margin-bottom: var(--space-2);
+}
+
+/* 4. About/Resume sections */
+#about, #resume, .about, .resume, section#about, section#resume {
+    max-width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#about h2, #resume h2, .about h2, .resume h2, .about .section-title, .resume .section-title {
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    margin-bottom: var(--space-2);
+    padding-bottom: .65rem;
+    border-bottom: none;
+    background: none;
+    position: relative;
+}
+#about h2::after, #resume h2::after, .about h2::after, .resume h2::after, .about .section-title::after, .resume .section-title::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    margin-top: .5rem;
+    margin-left: 0;
+    background: linear-gradient(to right, var(--primary), var(--primary-600));
+    border-radius: 1.5px;
+    opacity: 0.14;
+}
+.about ul, .resume ul, .about ol, .resume ol {
+    max-width: 90%;
+    margin-left: 0;
+    padding-left: 1.3em;
+}
+.about ul li, .resume ul li, .about ol li, .resume ol li {
+    margin-bottom: .4em;
+    line-height: 1.72;
+}
+.about img, .resume img, .profile, .about .profile, .resume .profile {
+    display: block;
+    margin: 0 auto 1.2rem auto;
+    box-shadow: var(--shadow-sm);
+}
+.rounded-circle, .profile img, .about img.rounded-circle {
+    border-radius: 50% !important;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--border);
+}
+.about img:not(.rounded-circle):not(.profile), .resume img:not(.rounded-circle):not(.profile) {
+    border-radius: var(--radius);
+}
+
+/* 5. Accessibility polish */
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-success, .btn-outline-danger {
+    border-width: 2px;
+    color: var(--primary);
+    background: #fff;
+    border-color: var(--primary);
+    transition: color .14s, background .14s, border-color .14s;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active,
+.btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active,
+.btn-outline-success:hover, .btn-outline-success:focus, .btn-outline-success:active,
+.btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger:active {
+    color: #fff!important;
+    background: var(--primary)!important;
+    border-color: var(--primary-700)!important;
+}
+
+.nav-link:focus-visible, .card:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--ring) !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px var(--ring) !important;
+    border-radius: var(--radius) !important;
+}
+
+/* 6. Responsive refinements */
+@media (max-width: 992px) {
+    .hero .text-xl-start, header .text-xl-start {
+        text-align: center !important;
+    }
+    .portfolio .row, .portfolio-overview .row, .portfolio-grid, .blog-preview-list .row, .blog-post-list .row, .row.gx-5 {
+        gap: var(--space-3) !important;
+        flex-direction: column !important;
+    }
+}
+@media (max-width: 768px) {
+    .hero .display-5, header .display-5 {
+        font-size: 1.3rem !important;
+    }
+    .portfolio .row, .portfolio-overview .row, .portfolio-grid, .blog-preview-list .row, .blog-post-list .row, .row.gx-5 {
+        gap: var(--space-2) !important;
+    }
+    .container, .px-5 {
+        max-width: 100vw;
+        padding-left: var(--space-1) !important;
+        padding-right: var(--space-1) !important;
+    }
+    section, .section {
+        padding: var(--space-2) 0 !important;
+    }
+}
 </style>
-    <body class="d-flex flex-column h-100">
+    </head><body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <!-- Navigation: persistent top bar for primary site routes -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
